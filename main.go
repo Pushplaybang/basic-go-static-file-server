@@ -11,7 +11,7 @@ func main() {
 	var dir string
 
 	// parse command line args
-	port := flag.String("port","3000", "port to serve HTTP on")
+	port := flag.String("port", "3000", "port to serve HTTP on")
 	path := flag.String("path", "", "path to server")
 	flag.Parse()
 
@@ -23,8 +23,8 @@ func main() {
 	}
 
 	// print to the console
-	fmt.Println("Server started, serving " + *path+ " directory at port " +*port)
+	fmt.Println("Server started, serving " + *path + " directory at port " + *port)
 
 	// listen and serve files
-	http.ListenAndServe(":"+ *port, http.FileServer(http.Dir(dir)))
+	http.ListenAndServe(":"+*port, http.FileServer(http.Dir(dir)))
 }
